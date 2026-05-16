@@ -1,0 +1,165 @@
+/* BLCK PRTY shared site CSS — countdown, signup form, build scrubber. */
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+.countdown {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  border: 2px solid var(--asphalt);
+  background: var(--paper);
+}
+.countdown__cell {
+  padding: 10px 16px 8px;
+  text-align: center;
+  border-right: 2px solid var(--asphalt);
+  min-width: 72px;
+}
+.countdown__cell:last-child { border-right: 0; }
+.countdown__num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 0.9;
+  display: block;
+}
+.countdown__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--concrete-700);
+  margin-top: 4px;
+  display: block;
+}
+.countdown--dark { background: var(--asphalt); color: var(--bone); border-color: var(--bone); }
+.countdown--dark .countdown__cell { border-color: var(--bone); }
+.countdown--dark .countdown__label { color: var(--concrete-300); }
+
+.signup {
+  display: flex;
+  gap: 0;
+  max-width: 520px;
+}
+.signup__input {
+  flex: 1;
+  padding: 14px 16px;
+  border: 2px solid var(--asphalt);
+  border-right: 0;
+  background: var(--paper);
+  font-family: var(--font-body);
+  font-size: 16px;
+  outline: none;
+  min-width: 0;
+}
+.signup__input:focus { box-shadow: inset -4px -4px 0 var(--hi-vis); }
+.signup__btn {
+  border: 2px solid var(--asphalt);
+  background: var(--asphalt);
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0 22px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms, color 120ms;
+}
+.signup__btn:hover { background: var(--hi-vis); color: var(--asphalt); }
+
+.stamp-confirm {
+  display: inline-block;
+  padding: 14px 20px 12px;
+  border: 3px solid var(--cone);
+  color: var(--cone);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  position: relative;
+  background: transparent;
+}
+.stamp-confirm__sub {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  margin-top: 6px;
+  color: var(--cone);
+}
+.stamp-confirm::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(-8deg, transparent 0 4px, rgba(255,90,31,0.08) 4px 5px);
+  pointer-events: none;
+}
+
+.scrubber__steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+.scrubber__step {
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  border-right: 2px solid currentColor;
+  padding: 28px 16px 24px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 120ms, color 120ms;
+  font-family: inherit;
+}
+.scrubber__step:last-child { border-right: 0; }
+.scrubber__step:hover { background: rgba(245, 227, 0, 0.12); }
+.scrubber__step[aria-pressed="true"] { background: var(--hi-vis); color: var(--asphalt); }
+.scrubber__num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 0.9;
+  margin-bottom: 12px;
+}
+.scrubber__caption {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 8px;
+}
+.scrubber__title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.scrubber__detail {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.hero-photo { width: 100%; height: 100%; display: block; }
+
+@media (max-width: 760px) {
+  .container { padding: 0 20px; }
+  .scrubber__steps { grid-template-columns: repeat(2, 1fr); }
+  .scrubber__step { border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; }
+  .scrubber__step:nth-child(2n) { border-right: 0; }
+  .scrubber__step:nth-last-child(-n+2) { border-bottom: 0; }
+}

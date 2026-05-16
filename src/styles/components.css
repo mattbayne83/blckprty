@@ -1,0 +1,158 @@
+/* BLCK PRTY shared components — buttons, chips, stamps, nav, inputs. */
+
+.bp-btn {
+  --btn-bg: var(--asphalt);
+  --btn-fg: var(--bone);
+  --btn-shadow: var(--shadow-stamp-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 12px 22px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: var(--bw-2) solid var(--asphalt);
+  border-radius: var(--radius-1);
+  box-shadow: var(--btn-shadow);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-snap),
+              box-shadow var(--dur-fast) var(--ease-snap),
+              background-color var(--dur-fast) var(--ease-snap),
+              color var(--dur-fast) var(--ease-snap);
+}
+.bp-btn:hover { background: var(--hi-vis); color: var(--asphalt); }
+.bp-btn:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--asphalt); }
+.bp-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-stamp-sm), 6px 6px 0 var(--cone);
+}
+
+.bp-btn--primary  { --btn-bg: var(--hi-vis); --btn-fg: var(--asphalt); }
+.bp-btn--primary:hover { background: var(--asphalt); color: var(--hi-vis); }
+
+.bp-btn--ghost { --btn-bg: transparent; --btn-fg: var(--asphalt); --btn-shadow: none; }
+.bp-btn--danger { --btn-bg: var(--danger); --btn-fg: var(--bone); }
+.bp-btn--cone   { --btn-bg: var(--cone);   --btn-fg: var(--bone); }
+
+.bp-btn--lg { padding: 18px 32px; font-size: 22px; }
+.bp-btn--sm { padding: 8px 14px;  font-size: 13px; box-shadow: 2px 2px 0 var(--asphalt); }
+.bp-btn--block { display: flex; width: 100%; }
+
+.bp-btn[disabled] { opacity: 0.45; cursor: not-allowed; box-shadow: none; transform: none; }
+
+.bp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: var(--bw-2) solid var(--asphalt);
+  border-radius: var(--radius-1);
+  background: var(--paper);
+  color: var(--asphalt);
+  line-height: 1;
+}
+.bp-chip--filled { background: var(--asphalt); color: var(--bone); }
+.bp-chip--hi-vis { background: var(--hi-vis); color: var(--asphalt); }
+.bp-chip--cone   { background: var(--cone);   color: var(--paper); }
+
+.bp-stamp {
+  display: inline-block;
+  padding: 10px 14px;
+  background: var(--cone);
+  color: var(--paper);
+  border: var(--bw-2) solid var(--asphalt);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: rotate(-3deg);
+  box-shadow: var(--shadow-stamp-sm);
+}
+
+.bp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: rgba(246, 242, 230, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: var(--bw-2) solid var(--asphalt);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+.bp-nav-brand { display: flex; align-items: center; gap: 10px; }
+button.bp-nav-brand {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.bp-nav-links { display: flex; gap: 26px; }
+.bp-nav-links a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--asphalt);
+  text-decoration: none;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  background: none;
+}
+.bp-nav-links a:hover { background: var(--hi-vis); border-bottom-color: var(--asphalt); }
+
+.bp-tape-rule {
+  height: 24px;
+  background-image: repeating-linear-gradient(-45deg, var(--asphalt) 0 10px, var(--hi-vis) 10px 20px);
+  border-top: 2px solid var(--asphalt);
+  border-bottom: 2px solid var(--asphalt);
+}
+
+/* Variation toggle (live switch between Safe / Loud) */
+.bp-toggle {
+  display: inline-flex;
+  border: var(--bw-2) solid var(--asphalt);
+  background: var(--paper);
+  border-radius: var(--radius-1);
+  overflow: hidden;
+  box-shadow: var(--shadow-stamp-sm);
+}
+.bp-toggle button {
+  appearance: none;
+  border: 0;
+  border-right: var(--bw-2) solid var(--asphalt);
+  background: transparent;
+  padding: 8px 14px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--asphalt);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-snap);
+}
+.bp-toggle button:last-child { border-right: 0; }
+.bp-toggle button:hover { background: var(--bone); }
+.bp-toggle button[aria-pressed="true"] { background: var(--hi-vis); }

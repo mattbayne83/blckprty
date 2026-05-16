@@ -1,0 +1,205 @@
+/* BLCK PRTY brand tokens — colors, type, shadows. Light + dark via .dark ancestor. */
+
+:root {
+  --asphalt:        #0E0E0E;
+  --asphalt-soft:   #1C1C1C;
+  --concrete-900:   #2A2A2A;
+  --concrete-700:   #555452;
+  --concrete-500:   #8A8884;
+  --concrete-300:   #BFBCB4;
+  --concrete-200:   #D9D6CD;
+  --concrete-100:   #EFECE3;
+  --bone:           #F6F2E6;
+  --paper:          #FFFFFF;
+
+  --hi-vis:         #F5E300;
+  --hi-vis-deep:    #C9BA00;
+  --cone:           #FF5A1F;
+  --cone-deep:      #D8430A;
+  --asphalt-blue:   #2541B2;
+  --chalk-pink:     #F2A3B5;
+
+  --danger:         #E2231A;
+  --go:             #14B26F;
+  --warning:        var(--hi-vis);
+
+  --bg:             var(--bone);
+  --bg-elev:        var(--paper);
+  --bg-inverse:     var(--asphalt);
+  --surface:        var(--paper);
+  --surface-sunk:   var(--concrete-100);
+
+  --fg:             var(--asphalt);
+  --fg-muted:       var(--concrete-700);
+  --fg-faint:       var(--concrete-500);
+  --fg-inverse:     var(--bone);
+
+  --line:           var(--asphalt);
+  --line-soft:      var(--concrete-300);
+  --line-strong:    var(--asphalt);
+
+  --accent:         var(--hi-vis);
+  --accent-fg:      var(--asphalt);
+  --accent-2:       var(--cone);
+  --accent-2-fg:    var(--paper);
+
+  --link:           var(--asphalt);
+  --link-underline: var(--hi-vis);
+
+  --font-display:   'Big Shoulders Stencil Display', 'Stardos Stencil', 'Impact', sans-serif;
+  --font-body:      'Archivo', 'Helvetica Neue', system-ui, sans-serif;
+  --font-cond:      'Archivo Narrow', 'Archivo', sans-serif;
+  --font-mono:      'JetBrains Mono', ui-monospace, 'Menlo', monospace;
+
+  --fs-mega:    clamp(72px, 12vw, 200px);
+  --fs-d1:      clamp(56px, 8vw, 120px);
+  --fs-d2:      clamp(40px, 6vw, 80px);
+  --fs-d3:      clamp(32px, 4.5vw, 56px);
+  --fs-h1:      40px;
+  --fs-h2:      28px;
+  --fs-h3:      22px;
+  --fs-h4:      18px;
+  --fs-body:    16px;
+  --fs-sm:      14px;
+  --fs-xs:      12px;
+  --fs-eyebrow: 13px;
+
+  --lh-tight:   0.92;
+  --lh-snug:    1.05;
+  --lh-body:    1.5;
+  --lh-loose:   1.7;
+
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  --radius-0: 0px;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-pill: 999px;
+
+  --bw-1: 1px;
+  --bw-2: 2px;
+  --bw-3: 3px;
+  --bw-4: 4px;
+
+  --shadow-stamp-sm: 3px 3px 0 var(--asphalt);
+  --shadow-stamp:    6px 6px 0 var(--asphalt);
+  --shadow-stamp-lg: 10px 10px 0 var(--asphalt);
+  --shadow-stamp-yel: 6px 6px 0 var(--hi-vis);
+  --shadow-stamp-org: 6px 6px 0 var(--cone);
+  --shadow-soft:     0 1px 0 var(--line-soft);
+
+  --ease-snap:  cubic-bezier(.2,.9,.25,1);
+  --ease-pop:   cubic-bezier(.34,1.56,.64,1);
+  --dur-fast:   120ms;
+  --dur-base:   200ms;
+  --dur-slow:   360ms;
+}
+
+.dark {
+  --bg:            var(--asphalt);
+  --bg-elev:       var(--asphalt-soft);
+  --bg-inverse:    var(--bone);
+  --surface:       var(--asphalt-soft);
+  --surface-sunk:  var(--concrete-900);
+  --fg:            var(--bone);
+  --fg-muted:      var(--concrete-300);
+  --fg-faint:      var(--concrete-500);
+  --fg-inverse:    var(--asphalt);
+  --line:          var(--bone);
+  --line-soft:     var(--concrete-700);
+  --line-strong:   var(--bone);
+  --link:          var(--hi-vis);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body { overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--hi-vis); color: var(--asphalt); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--space-4);
+  color: var(--fg);
+}
+h1 { font-size: var(--fs-d1); letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-d2); }
+h3 { font-size: var(--fs-d3); }
+h4 { font-size: var(--fs-h2); }
+h5 { font-size: var(--fs-h3); }
+h6 { font-size: var(--fs-h4); letter-spacing: 0.04em; }
+
+p { margin: 0 0 var(--space-4); max-width: 62ch; text-wrap: pretty; }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-snap),
+              background-color var(--dur-fast) var(--ease-snap);
+}
+a:hover { background: var(--hi-vis); color: var(--asphalt); }
+
+code, pre, kbd, samp { font-family: var(--font-mono); font-size: 0.92em; }
+
+hr {
+  border: 0;
+  border-top: var(--bw-2) solid var(--line);
+  margin: var(--space-6) 0;
+}
+
+.t-mega        { font-family: var(--font-display); font-weight: 900; font-size: var(--fs-mega); line-height: var(--lh-tight); letter-spacing: -0.025em; text-transform: uppercase; }
+.t-display-1   { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-d1); line-height: var(--lh-tight); letter-spacing: -0.02em; text-transform: uppercase; }
+.t-display-2   { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-d2); line-height: var(--lh-snug); letter-spacing: -0.01em; text-transform: uppercase; }
+.t-display-3   { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-d3); line-height: var(--lh-snug); letter-spacing: -0.005em; text-transform: uppercase; }
+.t-h1          { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-h1); line-height: var(--lh-snug); text-transform: uppercase; }
+.t-h2          { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h2); line-height: var(--lh-snug); text-transform: uppercase; }
+.t-h3          { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h3); line-height: var(--lh-snug); text-transform: uppercase; }
+.t-eyebrow     { font-family: var(--font-cond); font-weight: 700; font-size: var(--fs-eyebrow); line-height: 1; text-transform: uppercase; letter-spacing: 0.18em; }
+.t-body        { font-family: var(--font-body); font-weight: 400; font-size: var(--fs-body); line-height: var(--lh-body); }
+.t-body-strong { font-family: var(--font-body); font-weight: 700; font-size: var(--fs-body); line-height: var(--lh-body); }
+.t-sm          { font-family: var(--font-body); font-weight: 500; font-size: var(--fs-sm); line-height: 1.45; }
+.t-cond        { font-family: var(--font-cond); font-weight: 600; line-height: 1.25; }
+.t-mono        { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-sm); letter-spacing: 0.01em; }
+.t-ticket      { font-family: var(--font-mono); font-weight: 700; font-size: var(--fs-xs); letter-spacing: 0.14em; text-transform: uppercase; }
+
+.bp-caution-tape {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--asphalt) 0 14px,
+    var(--hi-vis) 14px 28px
+  );
+}
+.bp-grain {
+  background-image:
+    radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+}
