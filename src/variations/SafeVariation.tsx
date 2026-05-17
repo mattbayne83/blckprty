@@ -4,15 +4,9 @@ import { HeroPhoto } from "../components/HeroPhoto";
 import { RampDiagram } from "../components/RampDiagram";
 import { Scrubber } from "../components/Scrubber";
 import { SignupForm } from "../components/SignupForm";
-import { VariationToggle } from "../components/VariationToggle";
 import "./safe.css";
 
-type Props = {
-  variation: "safe" | "loud";
-  onVariationChange: (v: "safe" | "loud") => void;
-};
-
-export function SafeVariation({ variation, onVariationChange }: Props) {
+export function SafeVariation() {
   return (
     <div className="safe">
       {/* NAV */}
@@ -32,9 +26,8 @@ export function SafeVariation({ variation, onVariationChange }: Props) {
             <a href="#block">Neighbors</a>
             <a href="#list">Drop list</a>
           </div>
-          <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+          <div className="bp-nav-right">
             <span className="nav-status">Pre-orders open</span>
-            <VariationToggle variation={variation} onChange={onVariationChange} />
             <a href="#kit" className="bp-btn bp-btn--sm bp-btn--primary">Reserve · ${CONTENT.price}</a>
           </div>
         </nav>

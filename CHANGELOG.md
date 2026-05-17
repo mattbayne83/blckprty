@@ -2,6 +2,18 @@
 
 All notable changes to the Blck Prty Website. Follows [Keep a Changelog](https://keepachangelog.com/) conventions.
 
+## [0.2.0] — 2026-05-17
+
+### Removed
+- Loud visual variation, `VariationToggle` component, and `?v=safe|loud` URL routing. Site is now a single Safe-treatment page.
+
+### Changed
+- `App.tsx` simplified to a direct `<SafeVariation />` render.
+- Bundle: CSS 41 → 27 KB, JS 225 → 212 KB (gzipped 8 → 6 / 67 → 66).
+
+### Fixed
+- Mobile nav: links now wrap to a full-width second row at ≤760px while brand + Reserve CTA stay on the top row. `Pre-orders open` status hides at ≤760px (was 520px) so it doesn't crowd the Reserve button. Verified with Playwright at 1280×800 + 390×844.
+
 ## [0.1.0] — 2026-05-16
 
 Initial scaffold + both visual variations built from the claude.ai/design handoff bundle.

@@ -129,30 +129,31 @@ button.bp-nav-brand {
   border-bottom: 2px solid var(--asphalt);
 }
 
-/* Variation toggle (live switch between Safe / Loud) */
-.bp-toggle {
-  display: inline-flex;
-  border: var(--bw-2) solid var(--asphalt);
-  background: var(--paper);
-  border-radius: var(--radius-1);
-  overflow: hidden;
-  box-shadow: var(--shadow-stamp-sm);
+/* Right side of nav (status + reserve button) */
+.bp-nav-right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
-.bp-toggle button {
-  appearance: none;
-  border: 0;
-  border-right: var(--bw-2) solid var(--asphalt);
-  background: transparent;
-  padding: 8px 14px;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--asphalt);
-  cursor: pointer;
-  transition: background var(--dur-fast) var(--ease-snap);
+
+/* Mobile nav: brand + Reserve stay on top row; links wrap to a full-width second row */
+@media (max-width: 760px) {
+  .bp-nav {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+  .bp-nav-links {
+    order: 99;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .bp-nav-links a {
+    font-size: 12px;
+    padding: 6px 8px;
+    letter-spacing: 0.04em;
+  }
+  .bp-nav-right { gap: 10px; }
 }
-.bp-toggle button:last-child { border-right: 0; }
-.bp-toggle button:hover { background: var(--bone); }
-.bp-toggle button[aria-pressed="true"] { background: var(--hi-vis); }

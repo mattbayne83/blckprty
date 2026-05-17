@@ -370,8 +370,10 @@
   .safe .build__hd { flex-direction: column; align-items: flex-start; }
   .safe .kit__buy { padding: 0; }
 }
+@media (max-width: 760px) {
+  .safe .nav-status { display: none; }
+}
 @media (max-width: 520px) {
   .safe .hero__headline { font-size: 56px; }
   .safe .kit__price { font-size: 56px; }
-  .safe .nav-status { display: none; }
 }
